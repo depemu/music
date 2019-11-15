@@ -1,0 +1,24 @@
+.container
+  template(v-if="loader")
+    .title.loader
+      span Loading...
+      span Wait a minute
+  template(v-else)
+    .title
+      span Recently Played
+      span by #[a(href="https://last.fm/user/depemu", target="_blank") @depemu] 
+      span on Last.fm
+    .musics
+      template(v-for="(t, i) in tracks")
+        .music__item(:class="isPlaying(t) ? 'music--playing' : ''")
+          .music__image
+            img(:src="image(t)")
+          .music__details
+            .music__song: span {{ song(t) }}
+            .music__artist: span {{ artist(t) }}
+            .music__album: span {{ album(t) }}
+            .music__date.music--now(v-if="isPlaying(t)"): span Now Playing
+            .music__date(v-else): span {{ timestamp(t)|moment('from') }}
+  .footer 
+    div Made with &hearts; by #[a(href="https://muhar.us", target="_blank") Muhar]
+    div 2019

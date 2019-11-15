@@ -1,0 +1,153 @@
+@import '../../node_modules/compass-mixins/lib/compass'
+@import '../../node_modules/bourbon/core/bourbon'
+@import '../../node_modules/mustart-media-queries/src/core'
+@import 'vendors/reset'
+
+$padding: 30px
+$image-size: 150px
+$container-size: 700px
+$main-color: yellow
+$bg-color: white
+$text-color: black
+$text-size: 16px
+$border-size: 4px
+
+body
+  background: $main-color
+  color: $text-color
+  padding: $padding * 2 $padding
+  font:
+    family: Helvetica, serif
+    size: $text-size
+
+img
+  @extend .transition
+
+a
+  color: black
+  text-decoration: line-through
+  font-weight: bold
+  &:hover
+    text-decoration: none
+
+.transition
+  +transition(all .3s ease-in-out)
+
+.container
+  max-width: $container-size
+  margin: 0 auto
+
+.title
+  margin-bottom: $padding * 1.5
+  span
+    display: block
+    margin-bottom: 5px
+    &:nth-child(1)
+      font-size: 180%
+      font-weight: bold
+    &:nth-child(2)
+    &:nth-child(3)
+      font-style: italic
+
+.footer
+  margin-top: $padding * 1.5
+  font-size: 90%
+  line-height: 130%
+  color: $text-color
+
+.music
+  &s
+  &__item
+    @extend .transition
+    border: $border-size solid $text-color
+    margin-bottom: $padding
+    background: $main-color
+    position: relative
+    &:last-child
+      margin-bottom: 0
+    &:hover
+      +transform(scale(1.1))
+      .music__image
+        img
+          opacity: 1
+          +transform(scale(1))
+      .music__details
+        span
+          &:after
+            right: 100%
+            left: 0
+
+  &__image
+    overflow: hidden
+    position: absolute
+    left: 0
+    bottom: 0
+    top: 0
+    width: $image-size + $border-size * 2
+    background: $text-color
+    img
+      height: 100%
+      opacity: 0
+      +transform(scale(2))
+  &__details
+    padding: $padding
+    margin-left: $image-size + $border-size * 2
+    > div
+      margin-bottom: 7px
+    span
+      display: block
+      position: relative
+      &:after
+        @extend .transition
+        position: absolute
+        left: -1px
+        top: -1px
+        bottom: -1px
+        background: $text-color
+        right: -1px
+        content: ''
+  &__song
+    font-weight: bold
+    font-size: 150%
+  &__artist
+    font-size: 120%
+  &__date
+    font-size: 80%
+    color: lighten($text-color, 30%)
+
+  &--now
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg id='squiggle-link' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:ev='http://www.w3.org/2001/xml-events' viewBox='0 0 20 4'%3E%3Cstyle type='text/css'%3E.squiggle{animation:shift .4s linear infinite;}@keyframes shift {from {transform:translateX(0);}to {transform:translateX(-20px);}}%3C/style%3E%3Cpath fill='none' stroke='yellow' stroke-width='1' class='squiggle' d='M0,3.5 c 5,0,5,-3,10,-3 s 5,3,10,3 c 5,0,5,-3,10,-3 s 5,3,10,3'/%3E%3C/svg%3E")
+    span
+      display: inline-block
+      background: $text-color
+      padding-right: 10px
+  &--playing
+    background: $text-color
+    span
+      color: $main-color
+    .music__details
+      span
+        &:after
+          right: 100%
+          left: 0
+    .music__image
+      img
+        opacity: 1
+        animation: imageria 5s infinite
+        +transform(scale(1))
+
+
++medium-up
+  .music
+    &__details
+      span
+        display: inline-block
+
+
+@keyframes imageria
+  0%
+    +transform(scale(1.2))
+  50%
+    +transform(scale(1))
+  100%
+    +transform(scale(1.2))
