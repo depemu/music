@@ -19,7 +19,8 @@
     "nuxt": "^2.0.0",
     "pug": "^2.0.4",
     "pug-plain-loader": "^1.0.0",
-    "sass-loader": "^7.1.0"
+    "sass-loader": "^7.1.0",
+    "vue-moment": "^4.0.0"
   },
   "devDependencies": {}
 }
