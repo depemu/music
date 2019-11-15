@@ -1,7 +1,7 @@
 {
   "name": "music.lab.muhar.us",
-  "version": "1.0.0",
-  "description": "Last listened from Last.fm API",
+  "version": "0.0.1",
+  "description": "Recently played from Last.fm API",
   "author": "Muhar Dwi Purwanto",
   "private": true,
   "scripts": {
