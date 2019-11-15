@@ -1,6 +1,6 @@
 # music.lab.muhar.us
 
-> Last listened from Last.fm API
+> Recently played from Last.fm API
 
 ## Build Setup
 
