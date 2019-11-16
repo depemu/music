@@ -78,6 +78,7 @@ a
             left: 0
 
   &__image
+    display: none
     overflow: hidden
     position: absolute
     left: 0
@@ -91,7 +92,6 @@ a
       +transform(scale(2))
   &__details
     padding: $padding
-    margin-left: $image-size + $border-size * 2
     > div
       margin-bottom: 7px
     span
@@ -140,8 +140,11 @@ a
 +medium-up
   .music
     &__details
+      margin-left: $image-size + $border-size * 2
       span
         display: inline-block
+    &__image
+      display: block
 
 
 @keyframes imageria
