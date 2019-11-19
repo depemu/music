@@ -1,32 +1,40 @@
 @import '../../node_modules/compass-mixins/lib/compass'
 @import '../../node_modules/bourbon/core/bourbon'
 @import '../../node_modules/mustart-media-queries/src/core'
+@import '../../node_modules/mustart-gradients/src/core'
+
+@import url('https://fonts.googleapis.com/css?family=Quicksand:400,700&display=swap')
 @import 'vendors/reset'
 
++mustart-gradients
++mustart-gradient(black, #555, bl)
++mustart-gradient(green, #9cbf11, my)
+
 $padding: 30px
-$image-size: 150px
+$image-size: 95px
 $container-size: 700px
-$main-color: yellow
-$bg-color: white
-$text-color: black
+$bg-color: black
+$text-color: white
 $text-size: 16px
-$border-size: 4px
+$text-normal: 400
+$text-bold: 700
+$radius: 12px
 
 body
-  background: $main-color
+  background: $bg-color
   color: $text-color
   padding: $padding * 2 $padding
   font:
-    family: Helvetica, serif
+    family: Quicksand, sans-serif
     size: $text-size
 
 img
   @extend .transition
 
 a
-  color: black
+  color: darken($text-color, 10%)
   text-decoration: line-through
-  font-weight: bold
+  font-weight: $text-bold
   &:hover
     text-decoration: none
 
@@ -35,7 +43,7 @@ a
 
 .container
   max-width: $container-size
-  margin: 0 auto
+  margin: 0 auto 0 0
 
 .title
   margin-bottom: $padding * 1.5
@@ -50,6 +58,13 @@ a
     &:nth-child(3)
       font-style: italic
 
+.footer
+  position: relative
+  margin-top: $padding * 1.5
+  font-size: 95%
+  line-height: 140%
+  color: $text-color
+
 .playing
   position: fixed
   left: 0
@@ -58,32 +73,28 @@ a
   right: 0
   +box-shadow(inset 0 0 200px #000)
   img
-    opacity: .3
+    animation: imageria 20s infinite
+    opacity: .4
     object-fit: cover
     width: 100%
     height: 100%
-    +filter(blur(10px))
-
-
-.footer
-  margin-top: $padding * 1.5
-  font-size: 90%
-  line-height: 130%
-  color: $text-color
+    +filter(blur(4px))
 
 .music
   &s
     position: relative
   &__item
     @extend .transition
-    border: $border-size solid $text-color
+    +border-radius($radius)
     margin-bottom: $padding
-    background: $main-color
+    background-color: $text-color
+    color: $bg-color
     position: relative
+    +box-shadow(0 0 20px #333)
     &:last-child
       margin-bottom: 0
     &:hover
-      +transform(scale(1.1))
+      +transform(scale(1.04))
       .music__image
         img
           opacity: 1
@@ -95,14 +106,14 @@ a
             left: 0
 
   &__image
+    +border-radius($radius)
     display: none
     overflow: hidden
     position: absolute
-    left: 0
-    bottom: 0
-    top: 0
-    width: $image-size + $border-size * 2
-    background: $text-color
+    top: $padding
+    left: $padding - 2
+    +size($image-size)
+    background: $bg-color
     img
       height: 100%
       opacity: 0
@@ -111,37 +122,50 @@ a
     padding: $padding
     > div
       margin-bottom: 7px
+      &:first-child
+        margin-top: 2px
     span
       display: block
       position: relative
       &:after
         @extend .transition
         position: absolute
-        left: -1px
-        top: -1px
-        bottom: -1px
-        background: $text-color
-        right: -1px
+        left: -2px
+        top: -2px
+        bottom: -2px
+        right: -2px
+        background: $bg-color
+        +border-radius($radius / 2)
         content: ''
   &__song
     font-weight: bold
     font-size: 150%
+    padding-right: 20px
   &__artist
     font-size: 120%
   &__date
     font-size: 80%
-    color: lighten($text-color, 30%)
+    color: lighten($bg-color, 50%)
 
   &--now
-    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg id='squiggle-link' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:ev='http://www.w3.org/2001/xml-events' viewBox='0 0 20 4'%3E%3Cstyle type='text/css'%3E.squiggle{animation:shift .4s linear infinite;}@keyframes shift {from {transform:translateX(0);}to {transform:translateX(-20px);}}%3C/style%3E%3Cpath fill='none' stroke='yellow' stroke-width='1' class='squiggle' d='M0,3.5 c 5,0,5,-3,10,-3 s 5,3,10,3 c 5,0,5,-3,10,-3 s 5,3,10,3'/%3E%3C/svg%3E")
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg id='squiggle-link' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:ev='http://www.w3.org/2001/xml-events' viewBox='0 0 20 4'%3E%3Cstyle type='text/css'%3E.squiggle{animation:shift .4s linear infinite;}@keyframes shift {from {transform:translateX(0);}to {transform:translateX(-20px);}}%3C/style%3E%3Cpath fill='none' stroke='%239cbf11' stroke-width='1' class='squiggle' d='M0,3.5 c 5,0,5,-3,10,-3 s 5,3,10,3 c 5,0,5,-3,10,-3 s 5,3,10,3'/%3E%3C/svg%3E")
+    margin-left: 85px
     span
-      display: inline-block
-      background: $text-color
-      padding-right: 10px
+      display: block
+      margin-left: -85px
   &--playing
-    background: $text-color
-    span
-      color: $main-color
+    +box-shadow(0 0 10px 0 #333)
+    @extend .mustart-gradient-bl
+    color: $text-color
+    &:before
+      content: ''
+      display: block
+      +size(20px)
+      +border-radius(50%)
+      @extend .mustart-gradient-my
+      position: absolute
+      right: $padding
+      top: $padding
     .music__details
       span
         &:after
@@ -157,11 +181,18 @@ a
 +medium-up
   .music
     &__details
-      margin-left: $image-size + $border-size * 2
+      margin-left: $image-size + $padding / 2
       span
         display: inline-block
     &__image
       display: block
+
+
++media(800)
+  .container
+    padding:
+      left: $padding
+      right: $padding
 
 
 @keyframes imageria
