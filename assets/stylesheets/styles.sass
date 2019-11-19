@@ -94,7 +94,7 @@ a
     &:last-child
       margin-bottom: 0
     &:hover
-      +transform(scale(1.04))
+      +transform(scale(1.1))
       .music__image
         img
           opacity: 1
@@ -176,6 +176,27 @@ a
         opacity: 1
         animation: imageria 5s infinite
         +transform(scale(1))
+
+// Experimental Hover
+.music
+  &s
+    margin:
+      top: 140px
+    &:hover
+      .music__item
+        background-color: darken(white, 40%)
+        &:hover
+          background-color: white
+  &__item
+    margin:
+      top: -100px
+    &:hover
+      z-index: 100
+  &--playing
+    z-index: 100
+    margin-bottom: 130px
+    &:hover
+      +transform(scale(1))
 
 
 +medium-up
