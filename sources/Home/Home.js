@@ -3,7 +3,8 @@ import { mapActions, mapGetters } from 'vuex'
 export default {
   data() {
     return {
-      loader: true
+      loader: true,
+      nowPlaying: false
     }
   },
   computed: {
@@ -29,6 +30,8 @@ export default {
     },
     isPlaying (t) {
       if (t['@attr']) {
+        this.nowPlaying = t
+
         return true
       }
 
