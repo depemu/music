@@ -4,6 +4,8 @@
       span Loading...
       span Wait a minute
   template(v-else)
+    .playing(v-if="nowPlaying")
+      img(:src="image(nowPlaying)")
     .title
       span Recently Played
       span by #[a(href="https://last.fm/user/depemu", target="_blank") @depemu] 
