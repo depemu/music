@@ -1,4 +1,5 @@
 import { mapActions, mapGetters } from 'vuex'
+import moment from 'moment'
 
 export default {
   data() {
@@ -38,7 +39,9 @@ export default {
       return false
     },
     timestamp (t) {
-      return t.date['#text']
+      const dateTime = moment(t.date['#text'], 'D MMM YYYY, HH:mm').add(7, 'hours')
+
+      return dateTime.fromNow()
     }
   },
   mounted() {

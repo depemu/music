@@ -7,7 +7,6 @@
 @import 'vendors/reset'
 
 +mustart-gradients
-+mustart-gradient(black, #555, bl)
 +mustart-gradient(green, #9cbf11, my)
 
 $padding: 30px
@@ -28,7 +27,7 @@ body
     family: Quicksand, sans-serif
     size: $text-size
 
-img
+img, a
   @extend .transition
 
 a
@@ -86,11 +85,11 @@ a
   &__item
     @extend .transition
     +border-radius($radius)
+    +box-shadow(0 0 20px #333)
     margin-bottom: $padding
     background-color: $text-color
     color: $bg-color
     position: relative
-    +box-shadow(0 0 20px #333)
     &:last-child
       margin-bottom: 0
     &:hover
@@ -107,12 +106,12 @@ a
 
   &__image
     +border-radius($radius)
+    +size($image-size)
     display: none
     overflow: hidden
     position: absolute
     top: $padding
     left: $padding - 2
-    +size($image-size)
     background: $bg-color
     img
       height: 100%
@@ -155,14 +154,12 @@ a
       margin-left: -85px
   &--playing
     +box-shadow(0 0 10px 0 #333)
-    @extend .mustart-gradient-bl
-    color: $text-color
     &:before
-      content: ''
-      display: block
       +size(20px)
       +border-radius(50%)
       @extend .mustart-gradient-my
+      content: ''
+      display: block
       position: absolute
       right: $padding
       top: $padding
@@ -193,9 +190,11 @@ a
     &:hover
       z-index: 100
   &--playing
-    z-index: 100
-    margin-bottom: 130px
+    margin-bottom: 0
+    padding-bottom: 100px
+    background: $text-color !important
     &:hover
+      z-index: 0
       +transform(scale(1))
 
 
