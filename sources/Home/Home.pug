@@ -20,7 +20,7 @@
             .music__artist: span {{ artist(t) }}
             .music__album: span {{ album(t) }}
             .music__date.music--now(v-if="isPlaying(t)"): span Now Playing
-            .music__date(v-else): span {{ timestamp(t)|moment('add', '7 hours')|moment('from') }}
+            .music__date(v-else): span {{ timestamp(t) }}
   .footer 
     div Made with &hearts; by #[a(href="https://muhar.us", target="_blank") Muhar]
     div 2019
