@@ -3,7 +3,7 @@ export default {
     return new Promise ((resolve, reject) => {
       this.$axios.$get('https://api.lab.muhar.us/last.fm/').then((response) => {
         if (!response.error) {
-          commit('SET_TRACKS', response)
+          commit('SET_TRACKS', response.tracks)
           resolve(response)
         }
         else {
