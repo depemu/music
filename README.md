@@ -1,4 +1,4 @@
-> Recently played by @depemu from Last.fm API. Build using Nuxt.Js.
+Recently played by @depemu from Last.fm API. Build using Nuxt.Js.
 
 ## Getting Started
 
