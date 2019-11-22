@@ -1,8 +1,6 @@
-# music.lab.muhar.us
+> Recently played by @depemu from Last.fm API. Build using Nuxt.Js.
 
-> Recently played from Last.fm API
-
-## Build Setup
+## Getting Started
 
 ``` bash
 # install dependencies
@@ -19,4 +17,3 @@ $ yarn start
 $ yarn generate
 ```
 
-For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
