@@ -82,6 +82,7 @@ a
 .music
   &s
     position: relative
+    margin-bottom: $padding * 1.5
   &__item
     @extend .transition
     +border-radius($radius)
@@ -162,8 +163,8 @@ a
       content: ''
       display: block
       position: absolute
-      right: $padding
-      top: $padding
+      right: $padding / 2
+      top: $padding / 2
     .music__details
       span
         &:after
@@ -178,7 +179,7 @@ a
 .music
   &s
     margin:
-      top: 140px
+      top: 100px
     &:hover
       .music__item
         background-color: darken(white, 40%)
@@ -213,6 +214,9 @@ a
     padding:
       left: $padding
       right: $padding
+  .music
+    &s
+      margin-bottom: $padding * 2
 
 
 @keyframes imageria
