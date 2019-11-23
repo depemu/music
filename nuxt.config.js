@@ -45,6 +45,7 @@ export default {
   /*
   ** Build configuration
   */
+  buildDir: 'public',
   build: {
     /*
     ** You can extend webpack config here
