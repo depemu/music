@@ -4,11 +4,15 @@
       span Loading...
       span Wait a minute
   template(v-else)
-    .playing(v-if="nowPlaying")
-      img(:src="image(nowPlaying)")
+    .playing(v-if="bgPlaying")
+      img(:src="image(bgPlaying)")
     .musics
       template(v-for="(t, i) in tracks")
-        .music__item(:class="isPlaying(t) ? 'music--playing' : ''")
+        .music__item(
+          :class="isPlaying(t) ? 'music--playing' : ''",
+          @mouseover="musicHover(t)",
+          @mouseleave="musicLeave"
+        )
           .music__image
             img(:src="image(t)")
           .music__details

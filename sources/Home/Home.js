@@ -5,13 +5,21 @@ export default {
   data() {
     return {
       loader: true,
-      nowPlaying: false
+      nowPlaying: false,
+      playing: false
     }
   },
   computed: {
     ...mapGetters([
       'tracks'
-    ])
+    ]),
+    bgPlaying() {
+      if (this.playing) {
+        return this.playing
+      }
+
+      return this.nowPlaying
+    }
   },
   methods: {
     ...mapActions([
@@ -42,6 +50,14 @@ export default {
       const dateTime = moment(t.date['#text'], 'D MMM YYYY, HH:mm').add(7, 'hours')
 
       return dateTime.fromNow()
+    },
+    musicHover (track) {
+      if (this.playing.name != track.name) {
+        this.playing = track
+      }
+    },
+    musicLeave () {
+      this.playing = false
     }
   },
   mounted() {
