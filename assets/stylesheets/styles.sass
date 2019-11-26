@@ -19,10 +19,16 @@ $text-normal: 400
 $text-bold: 700
 $radius: 12px
 
+html
+  height: 100%
+
 body
+  min-height: 100%
   background: $bg-color
   color: $text-color
-  padding: $padding * 2 $padding
+  display: flex
+  align-items: center
+  justify-content: center
   font:
     family: Quicksand, sans-serif
     size: $text-size
@@ -31,7 +37,7 @@ img, a
   @extend .transition
 
 a
-  color: darken($text-color, 10%)
+  color: darken($text-color, 50%)
   text-decoration: line-through
   font-weight: $text-bold
   &:hover
@@ -42,11 +48,11 @@ a
 
 .container
   max-width: $container-size
-  margin: 0 auto 0 0
+  margin: 0 auto
+  padding: $padding * 2
 
 .title
-  margin-bottom: $padding * 1.5
-  position: relative
+  text-align: center
   span
     display: block
     margin-bottom: 5px
@@ -58,11 +64,12 @@ a
       font-style: italic
 
 .footer
-  position: relative
-  margin-top: $padding * 1.5
   font-size: 95%
   line-height: 140%
-  color: $text-color
+  text-align: center
+  margin-top: $padding
+  padding-top: $padding
+  border-top: 1px solid darken($text-color, 5%)
 
 .playing
   position: fixed
@@ -82,7 +89,6 @@ a
 .music
   &s
     position: relative
-    margin-bottom: $padding * 1.5
   &__item
     @extend .transition
     +border-radius($radius)
@@ -147,6 +153,13 @@ a
   &__date
     font-size: 80%
     color: lighten($bg-color, 50%)
+  &__footer
+    +border-radius($radius)
+    +box-shadow(0 0 20px #333)
+    background-color: $text-color
+    color: $bg-color
+    padding: $padding * 3 $padding $padding
+    margin-top: -$padding * 2.5
 
   &--now
     background-image: url("data:image/svg+xml;charset=utf8,%3Csvg id='squiggle-link' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:ev='http://www.w3.org/2001/xml-events' viewBox='0 0 20 4'%3E%3Cstyle type='text/css'%3E.squiggle{animation:shift .4s linear infinite;}@keyframes shift {from {transform:translateX(0);}to {transform:translateX(-20px);}}%3C/style%3E%3Cpath fill='none' stroke='%239cbf11' stroke-width='1' class='squiggle' d='M0,3.5 c 5,0,5,-3,10,-3 s 5,3,10,3 c 5,0,5,-3,10,-3 s 5,3,10,3'/%3E%3C/svg%3E")
@@ -182,7 +195,7 @@ a
       top: 100px
     &:hover
       .music__item
-        background-color: darken(white, 40%)
+        background-color: darken(white, 10%)
         &:hover
           background-color: white
   &__item
@@ -207,16 +220,6 @@ a
         display: inline-block
     &__image
       display: block
-
-
-+media(800)
-  .container
-    padding:
-      left: $padding
-      right: $padding
-  .music
-    &s
-      margin-bottom: $padding * 2
 
 
 @keyframes imageria

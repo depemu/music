@@ -1,7 +1,7 @@
 .container
   template(v-if="loader")
     .title.loader
-      span Loading...
+      span Loading
       span Wait a minute
   template(v-else)
     .playing(v-if="bgPlaying")
@@ -21,10 +21,10 @@
             .music__album: span {{ album(t) }}
             .music__date.music--now(v-if="isPlaying(t)"): span Now Playing
             .music__date(v-else): span {{ timestamp(t) }}
-    .title
-      span Recently Played
-      span by #[a(href="https://last.fm/user/depemu", target="_blank") @depemu] 
-      span on Last.fm
-  .footer 
-    div Made with &hearts; by #[a(href="https://muhar.us", target="_blank") Muhar]
-    div 2019
+      .music__footer
+        .title
+          span Recently Played
+          span by #[a(href="https://last.fm/user/depemu", target="_blank") @depemu] on Last.fm
+        .footer 
+          div Made with &hearts; by #[a(href="https://muhar.us", target="_blank") Muhar]
+          div 2019
