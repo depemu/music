@@ -12,8 +12,12 @@
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.5.4",
+    "acorn": "^6.4.1",
     "bourbon": "^6.0.0",
     "compass-mixins": "^0.12.10",
+    "dot-prop": "^4.2.1",
+    "kind-of": "^6.0.3",
+    "minimist": "^1.2.3",
     "moment": "^2.24.0",
     "mustart-gradients": "^0.0.6",
     "mustart-media-queries": "^0.0.7",
@@ -21,7 +25,8 @@
     "nuxt": "^2.0.0",
     "pug": "^2.0.4",
     "pug-plain-loader": "^1.0.0",
-    "sass-loader": "^7.1.0"
+    "sass-loader": "^7.1.0",
+    "serialize-javascript": "^3.1.0"
   },
   "devDependencies": {}
 }
