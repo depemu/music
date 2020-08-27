@@ -10,9 +10,9 @@ export default {
     }
   },
   computed: {
-    ...mapGetters([
-      'tracks'
-    ]),
+    ...mapGetters({
+      tracks: 'Tracks/tracks'
+    }),
     bgPlaying() {
       if (this.playing) {
         return this.playing
@@ -22,9 +22,9 @@ export default {
     }
   },
   methods: {
-    ...mapActions([
-      'getRecentTracks'
-    ]),
+    ...mapActions({
+      getRecentTracks: 'Tracks/getRecentTracks'
+    }),
     image (t) {
       return t.image[3]['#text']
     },
