@@ -1,9 +1,15 @@
 export default {
-  getRecentTracks ({ commit }) {
+  getRecentTracks ({ commit, state }) {
     return new Promise ((resolve, reject) => {
-      this.$axios.$get('https://api.muhar.us/last.fm/').then((response) => {
-        if (!response.error) {
-          commit('SET_TRACKS', response.tracks)
+      const username = state.username
+      const apiKey = process.env.LASTFM_API_KEY
+      const limit = state.limit
+
+      this.$axios.$get(`http://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=${username}&api_key=${apiKey}&limit=${limit}&format=json`).then((response) => {
+        if (response.recenttracks) {
+          const tracks = response.recenttracks.track
+
+          commit('SET_TRACKS', tracks)
           resolve(response)
         }
         else {
