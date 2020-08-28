@@ -1,11 +1,7 @@
 export default {
   getRecentTracks ({ commit, state }) {
     return new Promise ((resolve, reject) => {
-      const username = state.username
-      const apiKey = process.env.LASTFM_API_KEY
-      const limit = state.limit
-
-      this.$axios.$get(`//ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=${username}&api_key=${apiKey}&limit=${limit}&format=json`).then((response) => {
+      this.$axios.$get(`//depemu-muhapi.herokuapp.com/last.fm`).then((response) => {
         if (response.recenttracks) {
           const tracks = response.recenttracks.track
 
