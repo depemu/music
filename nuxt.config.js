@@ -1,6 +1,9 @@
 
 export default {
   mode: 'spa',
+  env: {
+    LASTFM_API_KEY: process.env.LASTFM_API_KEY || ''
+  },
   /*
   ** Headers of the page
   */
@@ -40,7 +43,8 @@ export default {
   ** Nuxt.js modules
   */
   modules: [
-    '@nuxtjs/axios'
+    '@nuxtjs/axios',
+    '@nuxtjs/dotenv'
   ],
   /*
   ** Build configuration
