@@ -1,7 +1,7 @@
 export default {
-  getRecentTracks ({ commit }) {
+  getRecentTracks ({ commit, state }) {
     return new Promise ((resolve, reject) => {
-      this.$axios.$get('https://api.muhar.us/last.fm/').then((response) => {
+      this.$axios.$get(`//depemu-mapi.herokuapp.com/last.fm/`).then((response) => {
         if (!response.error) {
           commit('SET_TRACKS', response.tracks)
           resolve(response)

@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.5.4",
+    "@nuxtjs/dotenv": "^1.4.1",
     "acorn": "^6.4.1",
     "bourbon": "^6.0.0",
     "compass-mixins": "^0.12.10",
