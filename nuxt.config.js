@@ -2,7 +2,7 @@
 export default {
   mode: 'spa',
   env: {
-    LASTFM_API_KEY: process.env.LASTFM_API_KEY || ''
+    NODE_ENV: process.env.NODE_ENV || ''
   },
   /*
   ** Headers of the page
