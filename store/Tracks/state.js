@@ -1,3 +1,5 @@
 export default () => ({
-  tracks: []
+  tracks: [],
+  username: '',
+  limit: 10
 })
