@@ -16,6 +16,13 @@ export default {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+    ],
+    script: [
+      {
+        'data-goatcounter': 'https://music.goatcounter.com/count',
+        async: 'async',
+        src: '//gc.zgo.at/count.js'
+      }
     ]
   },
   /*
