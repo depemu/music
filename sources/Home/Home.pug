@@ -6,7 +6,7 @@
   template(v-else)
     .playing(v-if="bgPlaying")
       img(:src="image(bgPlaying)")
-    .music--boxes
+    div(:class="themeClass")
       .musics
         template(v-for="(t, i) in tracks")
           .music__item(
@@ -15,7 +15,7 @@
             @mouseleave="musicLeave"
           )
             .music__image
-              img(:src="image(t)")
+              img(:src="image(t)", :title="`${song(t)} by ${artist(t)} (${album(t)})`")
             .music__details
               .music__song: span {{ song(t) }}
               .music__artist: span {{ artist(t) }}
