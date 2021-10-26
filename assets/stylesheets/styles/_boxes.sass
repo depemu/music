@@ -1,0 +1,26 @@
+.music--boxes
+  &.music
+    &s
+      &:after
+        clear: both
+        display: block
+        content: ''
+      margin:
+        top: 0
+
+  .music
+    &__item, &__footer
+      float: left
+      width: 250px
+      height: 250px
+      overflow: hidden
+      margin:
+        top: 0
+    &__item
+    &__footer
+      padding: 0
+    &--playing
+      padding:
+        bottom: 0
+      margin:
+        bottom: $padding
