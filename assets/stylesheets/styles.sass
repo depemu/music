@@ -50,9 +50,8 @@ a
   +transition(all .3s ease-in-out)
 
 .container
-  max-width: $container-size
   margin: 0 auto
-  padding: $padding * 2 $padding
+  padding: $padding * 2
 
 .title
   text-align: center
@@ -164,6 +163,10 @@ a
     padding: $padding * 3 $padding $padding
     margin-top: -$padding * 2.5
 
+  &--default
+    max-width: $container-size
+    margin: 0 auto
+
   &--now
     background-image: url("data:image/svg+xml;charset=utf8,%3Csvg id='squiggle-link' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:ev='http://www.w3.org/2001/xml-events' viewBox='0 0 20 4'%3E%3Cstyle type='text/css'%3E.squiggle{animation:shift .4s linear infinite;}@keyframes shift {from {transform:translateX(0);}to {transform:translateX(-20px);}}%3C/style%3E%3Cpath fill='none' stroke='%239cbf11' stroke-width='1' class='squiggle' d='M0,3.5 c 5,0,5,-3,10,-3 s 5,3,10,3 c 5,0,5,-3,10,-3 s 5,3,10,3'/%3E%3C/svg%3E")
     margin-left: 85px
@@ -232,3 +235,6 @@ a
     +transform(scale(1))
   100%
     +transform(scale(1.2))
+
+
+@import 'styles/boxes'

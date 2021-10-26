@@ -6,7 +6,8 @@ export default {
     return {
       loader: true,
       nowPlaying: false,
-      playing: false
+      playing: false,
+      theme: 'default'
     }
   },
   computed: {
@@ -19,6 +20,11 @@ export default {
       }
 
       return this.nowPlaying
+    },
+    themeClass() {
+      return [
+        `music--${this.theme}`
+      ]
     }
   },
   methods: {

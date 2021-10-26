@@ -6,25 +6,26 @@
   template(v-else)
     .playing(v-if="bgPlaying")
       img(:src="image(bgPlaying)")
-    .musics
-      template(v-for="(t, i) in tracks")
-        .music__item(
-          :class="isPlaying(t) ? 'music--playing' : ''",
-          @mouseover="musicHover(t)",
-          @mouseleave="musicLeave"
-        )
-          .music__image
-            img(:src="image(t)")
-          .music__details
-            .music__song: span {{ song(t) }}
-            .music__artist: span {{ artist(t) }}
-            .music__album: span {{ album(t) }}
-            .music__date.music--now(v-if="isPlaying(t)"): span Now Playing
-            .music__date(v-else): span {{ timestamp(t) }}
-      .music__footer
-        .title
-          span Recently Played
-          span by #[a(href="https://last.fm/user/depemu", target="_blank") @depemu] on Last.fm
-        .footer 
-          div Crafted with Joy by #[a(href="https://muhar.us", target="_blank") Muhar]
-          div 2019
+    div(:class="themeClass")
+      .musics
+        template(v-for="(t, i) in tracks")
+          .music__item(
+            :class="isPlaying(t) ? 'music--playing' : ''",
+            @mouseover="musicHover(t)",
+            @mouseleave="musicLeave"
+          )
+            .music__image
+              img(:src="image(t)", :title="`${song(t)} by ${artist(t)} (${album(t)})`")
+            .music__details
+              .music__song: span {{ song(t) }}
+              .music__artist: span {{ artist(t) }}
+              .music__album: span {{ album(t) }}
+              .music__date.music--now(v-if="isPlaying(t)"): span Now Playing
+              .music__date(v-else): span {{ timestamp(t) }}
+        .music__footer
+          .title
+            span Recently Played
+            span by #[a(href="https://last.fm/user/depemu", target="_blank") @depemu] on Last.fm
+          .footer 
+            div Crafted with Joy by #[a(href="https://muhar.us", target="_blank") Muhar]
+            div 2019
