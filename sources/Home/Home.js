@@ -7,7 +7,7 @@ export default {
       loader: true,
       nowPlaying: false,
       playing: false,
-      theme: 'boxes'
+      theme: 'default'
     }
   },
   computed: {
