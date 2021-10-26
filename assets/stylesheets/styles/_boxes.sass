@@ -1,26 +1,52 @@
+$box-width: 250px
+
+.container
+  max-width: none
+  padding: $padding * 2
+
 .music--boxes
-  &.music
-    &s
-      &:after
-        clear: both
-        display: block
-        content: ''
-      margin:
-        top: 0
+  display: flex
+  width: 100%
+  height: $box-width
 
   .music
+    &s
+      display: flex
+      flex: 1
+      width: auto
+      height: 100%
+      flex-flow: row nowrap
+      align-items: center
+      margin: 0
+
     &__item, &__footer
-      float: left
-      width: 250px
-      height: 250px
+      flex-shrink: 0
+      width: $box-width
+      height: $box-width
       overflow: hidden
-      margin:
-        top: 0
+      margin: 0 15px
+      +border-radius(5px)
+
     &__item
     &__footer
       padding: 0
+      margin-right: $padding * 2
+
+    &__image
+      +size(100%)
+      display: block
+      top: 0
+      left: 0
+      +border-radius(5px)
+      img
+        +border-radius(5px)
+        +transform(scale(1))
+    &__details
+      display: none
+
     &--playing
-      padding:
-        bottom: 0
-      margin:
-        bottom: $padding
+      padding: 0
+      margin: 15px
+      +size($box-width + 50px)
+      &:before
+        z-index: 1
