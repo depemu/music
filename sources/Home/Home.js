@@ -7,7 +7,17 @@ export default {
       loader: true,
       nowPlaying: false,
       playing: false,
-      theme: 'boxes'
+      theme: 1,
+      themes: [
+        {
+          name: 'default',
+          title: 'List'
+        },
+        {
+          name: 'boxes',
+          title: 'Thumbnail'
+        }
+      ]
     }
   },
   computed: {
@@ -21,10 +31,22 @@ export default {
 
       return this.nowPlaying
     },
-    themeClass() {
+    currentThemeClass () {
       return [
-        `music--${this.theme}`
+        `music--${this.currentThemeName}`
       ]
+    },
+    currentTheme () {
+      return this.themes[this.theme]
+    },
+    currentThemeName () {
+      return this.currentTheme.name
+    },
+    currentThemeTitle () {
+      return this.currentTheme.title
+    },
+    togglerCaption () {
+      return this.currentThemeTitle
     }
   },
   methods: {
@@ -67,6 +89,14 @@ export default {
     },
     imageDescription (item) {
       return `${this.song(item)} by ${this.artist(item)} (${this.album(item)})`
+    },
+    toggleThemes() {
+      if (this.theme == this.themes.length - 1) {
+        this.theme = 0
+      }
+      else {
+        this.theme++
+      }
     }
   },
   mounted() {
