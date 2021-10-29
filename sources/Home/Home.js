@@ -7,7 +7,7 @@ export default {
       loader: true,
       nowPlaying: false,
       playing: false,
-      theme: 'default'
+      theme: 'boxes'
     }
   },
   computed: {
@@ -64,6 +64,9 @@ export default {
     },
     musicLeave () {
       this.playing = false
+    },
+    imageDescription (item) {
+      return `${this.song(item)} by ${this.artist(item)} (${this.album(item)})`
     }
   },
   mounted() {
