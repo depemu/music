@@ -1,0 +1,33 @@
+.music--text
+  max-width: $container-size
+  margin: 0 auto
+
+  .playing
+    display: none
+
+  .music
+    &s
+      margin: 0
+
+    &__item, &__footer
+      margin-top: 0
+      +border-radius(0)
+      +box-shadow(none)
+      border: 5px solid $bg-color
+
+    &__item
+    &__footer
+
+    &__image
+      display: none
+
+    &__details
+      margin-left: 0
+      padding: 20px
+
+    &--playing
+      padding-bottom: 0
+      margin-bottom: $padding
+      background: $bg-color !important
+      div
+        color: $text-color

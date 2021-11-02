@@ -1,34 +1,25 @@
 $box-width: 200px
-$box-playing-width: 1.5
 $box-margin: 15px
 
-.music--boxes
-  display: flex
+.music--square
   width: 100%
-  height: $box-width
 
   .music
     &s
-      display: flex
-      flex: 1
-      width: auto
-      height: 100%
-      flex-flow: row nowrap
-      align-items: center
       margin: 0
+      background: red
 
     &__item, &__footer
-      flex-shrink: 0
       width: $box-width
       height: $box-width
-      margin: 0 $box-margin
+      margin: $box-margin
+      float: left
       +border-radius(5px)
 
     &__item
       overflow: hidden
     &__footer
       padding: 0
-      margin-right: $padding * 2 + $box-margin
       font-size: 70%
       .title
         padding: $padding
@@ -73,8 +64,7 @@ $box-margin: 15px
 
     &--playing
       padding: 0
-      margin: $box-margin
-      +size($box-width * $box-playing-width)
+      +size($box-width * 2 + $box-margin * 2)
       &:before
         z-index: 1
       .music
