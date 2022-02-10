@@ -23,7 +23,7 @@
     "moment": "^2.24.0",
     "mustart-gradients": "^0.0.6",
     "mustart-media-queries": "^0.0.7",
-    "node-sass": "^6.0.1",
+    "node-sass": "^7.0.0",
     "nuxt": "^2.15.8",
     "pug": "^3.0.1",
     "pug-plain-loader": "^1.0.0",
