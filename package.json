@@ -20,7 +20,7 @@
     "dot-prop": "^4.2.1",
     "kind-of": "^6.0.3",
     "minimist": "^1.2.3",
-    "moment": "^2.24.0",
+    "moment": "^2.29.2",
     "mustart-gradients": "^0.0.6",
     "mustart-media-queries": "^0.0.7",
     "node-sass": "^7.0.0",
