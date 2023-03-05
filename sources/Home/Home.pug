@@ -3,12 +3,15 @@
     .title.loader
       span Loading
       span Wait a seconds
-  template(v-else)
+  div(
+    :class="currentThemeClass",
+    v-else
+  )
     .toggler
       a(@click="toggleThemes") {{ togglerCaption }}
     .playing(v-if="bgPlaying")
       img(:src="image(bgPlaying)")
-    div(:class="currentThemeClass")
+    template
       .musics
         template(v-for="(t, i) in tracks")
           .music__item(
