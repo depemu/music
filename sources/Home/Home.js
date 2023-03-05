@@ -7,7 +7,7 @@ export default {
       loader: true,
       nowPlaying: false,
       playing: false,
-      theme: 2,
+      theme: 0,
       themes: [
         {
           name: 'default',
