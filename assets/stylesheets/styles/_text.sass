@@ -1,9 +1,14 @@
 .music--text
   max-width: $container-size
   margin: 0 auto
+  font-family: monospace
+  font-size: 80%
 
   .playing
-    display: none
+    background: darken(white, 5%) !important
+    +box-shadow(none)
+    img
+      display: none
 
   .music
     &s
@@ -31,3 +36,7 @@
       background: $bg-color !important
       div
         color: $text-color
+    &--now
+      margin-left: 90px
+      span
+        margin-left: -89px
