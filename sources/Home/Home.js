@@ -7,7 +7,7 @@ export default {
       loader: true,
       nowPlaying: false,
       playing: false,
-      theme: 1,
+      theme: 0,
       themes: [
         {
           name: 'default',
@@ -15,8 +15,16 @@ export default {
         },
         {
           name: 'boxes',
+          title: 'Gallery'
+        },
+        {
+          name: 'text',
+          title: 'Text'
+        },
+        /*{
+          name: 'square',
           title: 'Thumbnail'
-        }
+        }*/
       ]
     }
   },
