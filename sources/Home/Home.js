@@ -68,7 +68,7 @@ export default {
       return t.artist
     },
     song (t) {
-      return t.name
+      return t.title
     },
     album (t) {
       return t.album
@@ -82,7 +82,7 @@ export default {
       return dateTime.fromNow()
     },
     musicHover (track) {
-      if (this.playing.name != track.name) {
+      if (this.playing.title != track.title) {
         this.playing = track
       }
     },
