@@ -62,28 +62,22 @@ export default {
       getRecentTracks: 'Tracks/getRecentTracks'
     }),
     image (t) {
-      return t.image[3]['#text']
+      return t.image.extralarge
     },
     artist (t) {
-      return t.artist['#text']
+      return t.artist
     },
     song (t) {
       return t.name
     },
     album (t) {
-      return t.album['#text']
+      return t.album
     },
     isPlaying (t) {
-      if (t['@attr']) {
-        this.nowPlaying = t
-
-        return true
-      }
-
-      return false
+      return t.nowPlaying || false
     },
     timestamp (t) {
-      const dateTime = moment(t.date['#text'], 'D MMM YYYY, HH:mm').add(7, 'hours')
+      const dateTime = moment(t.date, 'D MMM YYYY, HH:mm').add(7, 'hours')
 
       return dateTime.fromNow()
     },
